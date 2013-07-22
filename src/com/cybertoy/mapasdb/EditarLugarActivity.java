@@ -75,6 +75,8 @@ public class EditarLugarActivity extends Activity implements OnClickListener {
     		
     		EditText.class.cast(this.findViewById(R.id.latitud)).setText(String.valueOf(posicion.latitude));
     		EditText.class.cast(this.findViewById(R.id.longitud)).setText(String.valueOf(posicion.longitude));
+    		btnGuardar.setVisibility(View.GONE);
+        	btnEliminar.setVisibility(View.GONE);
             break;
         case 3:
         	btnCrear.setVisibility(View.GONE);

@@ -59,7 +59,8 @@
     		android:value="AIzaSyBo0b_Lrl59_8NUz5aPWqfJEubefNs8pZw"/>
         
         <provider android:name="com.cybertoy.mapasdb.LugaresProvider"
-            	  android:authorities="com.cybertoy.mapasdb" />
+            	  android:authorities="com.cybertoy.mapasdb"
+            	  android:exported="false" />
     </application>
 
 </manifest>
