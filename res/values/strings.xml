@@ -1,0 +1,27 @@
+<resources>
+
+    <string name="app_name">MapasDb</string>
+    
+    <!-- principal_layout -->
+    <string name="imagenMenuInicio">Imagen inicio aplicación</string>
+    <string name="botonListaLugares">Lista de Lugares</string>
+    <string name="botonMapaLugares">Mapa de Lugares</string>
+
+    
+    
+	<string name="label_nombre">Nombre</string>
+	<string name="label_descripcion">Descripcion</string>
+	<string name="label_longitud">Longitud</string>
+	<string name="label_latitud">Latitud</string>
+	
+	<string name="boton_crear">Crear</string>
+	<string name="boton_guardar">Guardar</string>
+    <string name="boton_eliminar">Eliminar</string>
+	
+	<string name="imagen_foto">Imagen de un lugar</string>
+	<string name="boton_editar">Editar</string>
+	
+	<string name="label_lista_vacia">La lista está vacía.</string>
+	<string name="boton_anhadir">Añadir</string>
+	
+</resources>

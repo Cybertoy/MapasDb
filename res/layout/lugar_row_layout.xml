@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?><RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:padding="5sp" >
+    
+    <LinearLayout  
+        android:id="@+id/thumbnail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="3dip"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="5dip">    
+        
+        <ImageView 
+        	android:id="@+id/imagenLugar"
+        	android:layout_width="50dip"
+        	android:layout_height="50dip" />
+    </LinearLayout>
+    
+  	<TextView 
+     	android:id="@id/nombre"
+       	android:layout_width="wrap_content"
+       	android:layout_height="wrap_content"
+       	android:layout_alignTop="@+id/thumbnail"
+        android:layout_toRightOf="@+id/thumbnail"
+       	android:textColor="#040404"
+       	android:typeface="sans"
+       	android:textSize="17sp"
+       	android:textStyle="bold" />
+
+    <TextView 
+       	android:id="@id/descripcion"
+       	android:layout_width="fill_parent"
+       	android:layout_height="wrap_content"
+       	android:layout_below="@id/nombre"
+       	android:textColor="#343434"
+        android:textSize="12sp"
+        android:layout_marginTop="1dip"
+        android:layout_toRightOf="@+id/thumbnail" />
+    <ImageView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/arrow"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"/>
+</RelativeLayout>

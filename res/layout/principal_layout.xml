@@ -1,0 +1,30 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="70dip"
+    tools:context=".PrincipalActivity" >
+
+    <ImageView
+        android:id="@+id/img_mapa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/img_mapa"
+        android:contentDescription="@string/imagenMenuInicio" />
+
+    <Button
+        android:id="@+id/botonMapaLugares"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/botonMapaLugares" />
+
+    <Button
+        android:id="@+id/botonListaLugares"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"        
+        android:text="@string/botonListaLugares" />
+
+</LinearLayout>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:launchMode="singleTask" >
+    
+        <ImageView 
+        android:id="@+id/imagen_foto"
+        android:layout_width="fill_parent"
+        android:layout_height="75dp"
+        android:clickable="true"
+        android:contentDescription="@string/imagen_foto" />
+    
+       <TextView
+           android:id="@+id/label_nombre"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/label_nombre"
+           android:layout_below="@+id/imagen_foto"
+           android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+       <EditText
+           android:id="@+id/nombre"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_alignParentLeft="true"
+           android:layout_below="@+id/label_nombre"
+           android:ems="10"
+           android:inputType="text"/>
+    
+       <TextView
+           android:id="@+id/label_descripcion"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/label_descripcion"
+           android:textAppearance="?android:attr/textAppearanceMedium"
+           android:layout_below="@+id/nombre"
+           android:layout_marginTop="20dp" />
+        
+       <EditText
+           android:id="@+id/descripcion"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_alignParentLeft="true"
+           android:layout_below="@+id/label_descripcion"
+           android:ems="10"
+           android:inputType="textMultiLine"/>
+        
+       <TextView
+           android:id="@+id/label_longitud"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/label_longitud"
+           android:textAppearance="?android:attr/textAppearanceMedium"
+           android:layout_below="@+id/descripcion"
+           android:layout_marginTop="20dp" />
+        
+       <EditText
+           android:id="@+id/longitud"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_alignParentLeft="true"
+           android:layout_below="@+id/label_longitud"
+           android:ems="10"
+           android:inputType="numberDecimal"/>
+        
+       <TextView
+           android:id="@+id/label_latitud"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/label_latitud"
+           android:textAppearance="?android:attr/textAppearanceMedium"
+           android:layout_below="@+id/longitud"
+           android:layout_marginTop="20dp" />
+        
+       <EditText
+           android:id="@+id/latitud"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_alignParentLeft="true"
+           android:layout_below="@+id/label_latitud"
+           android:ems="10"
+           android:inputType="numberDecimal"/>
+
+      <Button 
+           android:id="@+id/botonCrear"
+           android:layout_width="fill_parent"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/latitud"
+  		   android:text="@string/boton_crear" />
+      
+      <LinearLayout 
+          android:id="@+id/btnGuardaBorra"
+          android:orientation="horizontal"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/latitud" >
+          
+          <Button
+              android:id="@+id/btnGuardar"
+              android:layout_width="fill_parent"
+           	  android:layout_height="wrap_content"
+           	  android:layout_weight="1"
+           	  android:text="@string/boton_guardar" />
+          <Button
+              android:id="@+id/btnEliminar"
+              android:layout_width="fill_parent"
+           	  android:layout_height="wrap_content"
+           	  android:layout_weight="1"
+           	  
+           	  android:text="@string/boton_eliminar" />
+      </LinearLayout>
+      
+</RelativeLayout>
+

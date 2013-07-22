@@ -1,0 +1,45 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Lugares" >
+
+<!--     <EditText -->
+<!--    		android:id="@+id/busqueda" -->
+<!--     	android:layout_width="fill_parent" -->
+<!--     	android:layout_height="wrap_content" -->
+<!--     	android:hint="Buscar lugar..." -->
+<!--     	android:inputType="text"/> -->
+    
+    <ListView
+        android:id="@+id/android:list"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent" >
+    </ListView>
+   
+	<LinearLayout 
+    	android:id="@+id/android:empty"
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="vertical"
+    	android:gravity="center" >
+
+    	<TextView
+        	android:id="@+id/label_lista_vacia"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:text="@string/label_lista_vacia"
+        	android:textAppearance="?android:attr/textAppearanceLarge"
+        	android:layout_marginTop="30dp" />
+
+    	<Button 
+        	android:id="@+id/boton_anhadir"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:text="@string/boton_anhadir"
+        	android:layout_marginTop="30dp" />
+	</LinearLayout>
+    
+    
+</LinearLayout>
