@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <RelativeLayout 
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:launchMode="singleTask" >
     
         <ImageView 
@@ -62,7 +66,7 @@
            android:layout_alignParentLeft="true"
            android:layout_below="@+id/label_longitud"
            android:ems="10"
-           android:inputType="numberDecimal"/>
+           android:inputType="numberDecimal|numberSigned"/>
         
        <TextView
            android:id="@+id/label_latitud"
@@ -110,6 +114,9 @@
            	  
            	  android:text="@string/boton_eliminar" />
       </LinearLayout>
-      
 </RelativeLayout>
+</ScrollView>
+
+
+
 

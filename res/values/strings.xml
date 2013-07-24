@@ -7,12 +7,12 @@
     <string name="botonListaLugares">Lista de Lugares</string>
     <string name="botonMapaLugares">Mapa de Lugares</string>
 
-    
-    
+    <!-- lista_lugares_layout -->
 	<string name="label_nombre">Nombre</string>
 	<string name="label_descripcion">Descripcion</string>
 	<string name="label_longitud">Longitud</string>
 	<string name="label_latitud">Latitud</string>
+	<string name="label_mensaje">Se pueden añadir más lugares pulsando el boton menu</string>
 	
 	<string name="boton_crear">Crear</string>
 	<string name="boton_guardar">Guardar</string>
@@ -23,5 +23,8 @@
 	
 	<string name="label_lista_vacia">La lista está vacía.</string>
 	<string name="boton_anhadir">Añadir</string>
+	
+	<!-- mapa_lugares_layout -->
+	<string name="texto_mapa" >Pulse en el mapa para añadir lugar</string>
 	
 </resources>

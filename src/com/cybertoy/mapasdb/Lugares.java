@@ -1,15 +1,40 @@
+/**
+* Lugares.java - Clase para gestionar los objetos de tipo Lugares  
+* @author  Santiago Mart’nez Mart’nez
+* @version 1.0 
+*/
 package com.cybertoy.mapasdb;
 
+/**
+ * Clase Lugares.
+ */
 public class Lugares {
 
+	/** atributos de la clase */
 	private int id;
-	private String nombre;
-	private String descripcion;
-	private double longitud;  
-	private double latitud;
-	private String foto;
 	
-	public Lugares(int id, String nombre, String descripcion, double longitud, double latitud, String foto) {
+	private String nombre;
+	
+	private String descripcion;
+	
+	private double longitud;
+	
+	private double latitud;
+	
+	private String foto;
+
+	/**
+	 * Instantiates a new lugares.
+	 *
+	 * @param id Id del lugar
+	 * @param nombre Nombre
+	 * @param descripcion Descripci—n del lugar
+	 * @param longitud Longitud del lugar
+	 * @param latitud Latitud del lugar
+	 * @param foto Ruta de la imagen
+	 */
+	public Lugares(int id, String nombre, String descripcion, double longitud,
+			double latitud, String foto) {
 		this.id = id;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
@@ -18,89 +43,114 @@ public class Lugares {
 		this.foto = foto;
 	}
 
-
+	/* GETTERS Y SETTERS DE LA CLASE */
+	
 	/**
-	 * @return the _id
+	 * Devuelve el _id.
+	 *
+	 * @return _id
 	 */
 	public int get_id() {
 		return id;
 	}
 
 	/**
-	 * @param _id the _id to set
+	 * Informa el _id.
+	 *
+	 * @param _id
 	 */
 	public void set_id(int _id) {
 		this.id = _id;
 	}
 
 	/**
-	 * @return the nombre
+	 * Devuelve el nombre.
+	 *
+	 * @return nombre
 	 */
 	public String getNombre() {
 		return nombre;
 	}
 
 	/**
-	 * @param nombre the nombre to set
+	 * Informa el nombre.
+	 *
+	 * @param nombre
 	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
 	/**
-	 * @return the descripcion
+	 * Devuelve la descripcion.
+	 *
+	 * @return descripcion
 	 */
 	public String getDescripcion() {
 		return descripcion;
 	}
 
 	/**
-	 * @param descripcion the descripcion to set
+	 * Informa la descripcion.
+	 *
+	 * @param descripcion
 	 */
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
 
 	/**
-	 * @return the longitud
+	 * Devuelve la longitud.
+	 *
+	 * @return longitud
 	 */
 	public double getLongitud() {
 		return longitud;
 	}
 
 	/**
-	 * @param longitud the longitud to set
+	 * Informa la longitud.
+	 *
+	 * @param longitud
 	 */
 	public void setLongitud(double longitud) {
 		this.longitud = longitud;
 	}
 
 	/**
-	 * @return the latitud
+	 * Devuelve la latitud.
+	 *
+	 * @return latitud
 	 */
 	public double getLatitud() {
 		return latitud;
 	}
 
 	/**
-	 * @param latitud the latitud to set
+	 * Informa la latitud.
+	 *
+	 * @param latitud
 	 */
 	public void setLatitud(double latitud) {
 		this.latitud = latitud;
 	}
 
 	/**
-	 * @return the foto
+	 * Devuelve la ruta foto.
+	 *
+	 * @return foto
 	 */
 	public String getFoto() {
 		return foto;
 	}
 
 	/**
-	 * @param foto the foto to set
+	 * Informa la ruta foto.
+	 *
+	 * @param foto
 	 */
 	public void setFoto(String foto) {
 		this.foto = foto;
-	}	
-	
+	}
+
 }

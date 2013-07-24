@@ -36,9 +36,10 @@
  
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/img_mapa"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme"
+		android:screenOrientation="portrait" >
         
         <activity 
             android:name="com.cybertoy.mapasdb.PrincipalActivity"
@@ -56,7 +57,7 @@
         
         <meta-data
     		android:name="com.google.android.maps.v2.API_KEY"
-    		android:value="AIzaSyBo0b_Lrl59_8NUz5aPWqfJEubefNs8pZw"/>
+    		android:value="AIzaSyC2gmqg3reeomhmQIradK26_RkDpIhGfi4"/>
         
         <provider android:name="com.cybertoy.mapasdb.LugaresProvider"
             	  android:authorities="com.cybertoy.mapasdb"

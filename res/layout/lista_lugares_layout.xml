@@ -39,6 +39,15 @@
         	android:layout_height="wrap_content"
         	android:text="@string/boton_anhadir"
         	android:layout_marginTop="30dp" />
+    	
+    	<TextView
+        	android:id="@+id/label_mensaje"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:text="@string/label_mensaje"
+        	android:gravity="center"
+        	android:textAppearance="?android:attr/textAppearanceLarge"
+        	android:layout_marginTop="30dp" />
 	</LinearLayout>
     
     
