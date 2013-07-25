@@ -8,8 +8,6 @@ package com.cybertoy.mapasdb;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.cybertoy.mapasdb.PrincipalActivity.ActivitiesConstantes;
-
 import android.app.ListActivity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -21,6 +19,8 @@ import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+
+import com.cybertoy.mapasdb.PrincipalActivity.ActivitiesConstantes;
 
 /**
  * Clase ListaLugaresActivity.
@@ -135,7 +135,7 @@ public class ListaLugaresActivity extends ListActivity {
 		return true;
 	}
 
-	/* Hemos seleccionado una opci—n
+	/* Hemos seleccionado una opci—n del menu de boton menu
 	 * @see android.app.Activity#onOptionsItemSelected(android.view.MenuItem)
 	 */
 	@Override

@@ -171,25 +171,29 @@ containing a value of this type.
         public static final int common_signin_btn_text_normal_light=0x7f020017;
         public static final int common_signin_btn_text_pressed_dark=0x7f020018;
         public static final int common_signin_btn_text_pressed_light=0x7f020019;
-        public static final int ic_launcher=0x7f02001a;
-        public static final int img_mapa=0x7f02001b;
+        public static final int compass=0x7f02001a;
+        public static final int ic_launcher=0x7f02001b;
+        public static final int maps=0x7f02001c;
     }
     public static final class id {
-        public static final int LinearLayout1=0x7f05001b;
+        public static final int LinearLayout1=0x7f05001f;
         public static final int botonCrear=0x7f05000e;
-        public static final int botonListaLugares=0x7f05001e;
-        public static final int botonMapaLugares=0x7f05001d;
+        public static final int botonListaLugares=0x7f050025;
+        public static final int botonMapaLugares=0x7f050024;
         public static final int boton_anhadir=0x7f050013;
-        public static final int boton_editar=0x7f05001a;
+        public static final int boton_editar=0x7f05001e;
         public static final int btnEliminar=0x7f050011;
         public static final int btnGuardaBorra=0x7f05000f;
         public static final int btnGuardar=0x7f050010;
+        public static final int compass=0x7f05001c;
+        public static final int coordenadas=0x7f05001d;
+        public static final int datos=0x7f05001a;
         public static final int descripcion=0x7f050009;
         public static final int hybrid=0x7f050004;
         public static final int image_foto=0x7f050019;
         public static final int imagenLugar=0x7f050016;
         public static final int imagen_foto=0x7f050005;
-        public static final int img_mapa=0x7f05001c;
+        public static final int img_mapa=0x7f050023;
         public static final int label_descripcion=0x7f050008;
         public static final int label_latitud=0x7f05000c;
         public static final int label_lista_vacia=0x7f050012;
@@ -197,14 +201,18 @@ containing a value of this type.
         public static final int label_mensaje=0x7f050014;
         public static final int label_nombre=0x7f050006;
         public static final int latitud=0x7f05000d;
+        public static final int localizacion=0x7f05001b;
         public static final int longitud=0x7f05000b;
         public static final int map=0x7f050018;
+        public static final int menu=0x7f050022;
         public static final int nombre=0x7f050007;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
         public static final int satellite=0x7f050002;
         public static final int terrain=0x7f050003;
         public static final int thumbnail=0x7f050015;
+        public static final int titulo=0x7f050020;
+        public static final int titulo_app=0x7f050021;
         public static final int tv_location=0x7f050017;
     }
     public static final class layout {
@@ -228,11 +236,13 @@ containing a value of this type.
         public static final int auth_client_requested_by_msg=0x7f060011;
         public static final int botonListaLugares=0x7f060017;
         public static final int botonMapaLugares=0x7f060018;
-        public static final int boton_anhadir=0x7f060024;
-        public static final int boton_crear=0x7f06001e;
-        public static final int boton_editar=0x7f060022;
-        public static final int boton_eliminar=0x7f060020;
-        public static final int boton_guardar=0x7f06001f;
+        public static final int boton_anhadir=0x7f060020;
+        /**  editar_lugar_layout 
+         */
+        public static final int boton_crear=0x7f060022;
+        public static final int boton_editar=0x7f060027;
+        public static final int boton_eliminar=0x7f060024;
+        public static final int boton_guardar=0x7f060023;
         /**  Button in confirmation dialog to enable Google Play services.  Clicking it
         will direct user to application settings of Google Play services where they
         can enable it [CHAR LIMIT=40] 
@@ -288,18 +298,22 @@ containing a value of this type.
         /**  Long form sign-in button text [CHAR LIMIT=30] 
          */
         public static final int common_signin_button_text_long=0x7f06000e;
+        public static final int compass=0x7f060025;
+        /**  lugar_row_layout 
+         */
+        public static final int flecha=0x7f060021;
         /**  principal_layout 
          */
         public static final int imagenMenuInicio=0x7f060016;
-        public static final int imagen_foto=0x7f060021;
-        public static final int label_descripcion=0x7f06001a;
-        public static final int label_latitud=0x7f06001c;
-        public static final int label_lista_vacia=0x7f060023;
-        public static final int label_longitud=0x7f06001b;
-        public static final int label_mensaje=0x7f06001d;
+        public static final int imagen_foto=0x7f060026;
+        public static final int label_descripcion=0x7f06001b;
+        public static final int label_latitud=0x7f06001d;
+        public static final int label_lista_vacia=0x7f06001f;
+        public static final int label_longitud=0x7f06001c;
+        public static final int label_mensaje=0x7f06001e;
         /**  lista_lugares_layout 
          */
-        public static final int label_nombre=0x7f060019;
+        public static final int label_nombre=0x7f06001a;
         /**  Location client code resources (prefix with location_client) 
 
         Begin strings for location.reporting
@@ -313,7 +327,8 @@ containing a value of this type.
         public static final int location_client_ulr_inactive_unknown_restriction=0x7f060014;
         /**  mapa_lugares_layout 
          */
-        public static final int texto_mapa=0x7f060025;
+        public static final int texto_mapa=0x7f060028;
+        public static final int titulo=0x7f060019;
     }
     public static final class style {
         /** 

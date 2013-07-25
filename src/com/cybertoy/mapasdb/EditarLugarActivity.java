@@ -11,7 +11,9 @@ import java.io.FileOutputStream;
 import java.io.OutputStream;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -70,7 +72,7 @@ public class EditarLugarActivity extends Activity implements OnClickListener {
 	 * */
 	private String foto_path = "R.drawable.camara";
 
-	/* (non-Javadoc)
+	/* Arranca la actividad
 	 * @see android.app.Activity#onCreate(android.os.Bundle)
 	 */
 	@Override
@@ -78,6 +80,7 @@ public class EditarLugarActivity extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.editar_lugar_layout);
 
+		// Declaramos los botones de la actividad y les asignamos loslistener correspondientes
 		Button btnCrear = (Button) findViewById(R.id.botonCrear);
 		Button btnGuardar = (Button) findViewById(R.id.btnGuardar);
 		Button btnEliminar = (Button) findViewById(R.id.btnEliminar);
@@ -86,21 +89,34 @@ public class EditarLugarActivity extends Activity implements OnClickListener {
 		btnCrear.setOnClickListener(this);
 		btnGuardar.setOnClickListener(this);
 		btnEliminar.setOnClickListener(this);
-
+		
 		// Ver actividad de la que llaman para recoger los datos adecuadamente
 		int activityOrigen = getIntent().getIntExtra("activity-origen", 0);
 
+		// Recuperamos el path de la imagen por defecto para el objeto imagen de la activity
 		int imagenDefecto = R.drawable.camara;
 		Drawable imagen = getResources().getDrawable(imagenDefecto);
 
+		/* Vemos desde que actividad llamamos para recuperar los datos necesarios y 
+		 * mostrar los botones que necesita.
+		 */
+		
 		switch (activityOrigen) {
 		case ActivitiesConstantes.ACTIVIDAD_LISTA:
+			// Oculto los botones de guardar y eliminar
 			btnGuardar.setVisibility(View.GONE);
 			btnEliminar.setVisibility(View.GONE);
+			
+			// Mostramos imagen por defecto
 			imagenFoto.setImageDrawable(imagen);
 			break;
 		case ActivitiesConstantes.ACTIVIDAD_MAPAS:
+			// Mostramos imagen por defecto
 			imagenFoto.setImageDrawable(imagen);
+			
+			/* Recuperamos las coordenadas que vienen desde la actividad de mapas
+			 * y las muestro en los campos de texto correspondientes
+			 */
 			Bundle bundle = getIntent().getParcelableExtra("bundle");
 
 			LatLng posicion = bundle.getParcelable("coordenada");
@@ -109,20 +125,24 @@ public class EditarLugarActivity extends Activity implements OnClickListener {
 					String.valueOf(posicion.latitude));
 			EditText.class.cast(this.findViewById(R.id.longitud)).setText(
 					String.valueOf(posicion.longitude));
+			
+			// Oculto los botones de guardar y eliminar
 			btnGuardar.setVisibility(View.GONE);
 			btnEliminar.setVisibility(View.GONE);
 			break;
 		case ActivitiesConstantes.ACTIVIDAD_MOSTRAR:
+			// Oculto el boton Crear
 			btnCrear.setVisibility(View.GONE);
 			break;
 		}
 	}
 
-	/* (non-Javadoc)
+	/* Cargamos los datos desde BBDD si fuera necesario, sino, 
 	 * @see android.app.Activity#onResume()
 	 */
 	@Override
 	public void onResume() {
+		Toast.makeText(this, "Manten pulsada la imagen para a–adir una", Toast.LENGTH_LONG).show();
 		Bundle bundle = getIntent().getExtras();
 
 		ImageView imagenFoto = (ImageView) findViewById(R.id.imagen_foto);
@@ -138,10 +158,13 @@ public class EditarLugarActivity extends Activity implements OnClickListener {
 			id = -1;
 		}
 
-		// El id que llega es mayor o igual a 0 por lo que cargamos los datos en los elementos de la activity
+		/* El id que llega es mayor o igual a 0 por lo que estamos ante una edicion de lugar, se recogen los datos
+		 * y se muestran en la activity
+		 */
 		if (id >= 0) {
 			Cursor cursor = null;
 			try {
+				// Usamos el Content Provider para acceder a los datos
 				cursor = this
 						.getContentResolver()
 						.query(Uri
@@ -150,6 +173,8 @@ public class EditarLugarActivity extends Activity implements OnClickListener {
 								DatabaseHandler.PROJECTION_ALL_FIELDS, null,
 								null, null);
 				if (cursor.moveToFirst()) {
+					
+					// Recogemos los datos desde BBDD a traves del Content Provider
 					String nombre = cursor.getString(cursor
 							.getColumnIndex(DatabaseHandler.COLUMNA_NOMBRE));
 					String descripcion = cursor
@@ -175,6 +200,7 @@ public class EditarLugarActivity extends Activity implements OnClickListener {
 						}
 					}
 
+					// Informamos los objetos con los datos obtenidos
 					EditText.class.cast(this.findViewById(R.id.nombre))
 							.setText(nombre);
 					EditText.class.cast(this.findViewById(R.id.descripcion))
@@ -225,7 +251,7 @@ public class EditarLugarActivity extends Activity implements OnClickListener {
 		return super.onContextItemSelected(item);
 	}
 
-	/* (non-Javadoc)
+	/* Metodo para procesar los datos devueltos a la hora de obtener una imagen
 	 * @see android.app.Activity#onActivityResult(int, int, android.content.Intent)
 	 */
 	@Override
@@ -236,6 +262,9 @@ public class EditarLugarActivity extends Activity implements OnClickListener {
 			// Tama–o que queremos que tenga la imagen guardada
 			int scaleWidth = 400, scaleHeigth = 300;
 
+			/* Creamos un nombre para la imagen capturada, tanto por camara como por
+			 * biblioteca de imagenes. 
+			 */
 			String image_name = android.text.format.DateFormat.format(
 					"yyyyMMdd_kkmmss", new java.util.Date()).toString();
 			File dir = new File(Environment.getExternalStorageDirectory()
@@ -252,6 +281,10 @@ public class EditarLugarActivity extends Activity implements OnClickListener {
 				e1.printStackTrace();
 			}
 
+			
+			/* Vemos que requestcode nos ha llegado para operar con una imagen de la biblioteca
+			 * o con la camara integrada
+			 */
 			switch (requestCode) {
 			case SELECCION_FOTO:
 				Uri selectedImageUri = data.getData();
@@ -306,6 +339,7 @@ public class EditarLugarActivity extends Activity implements OnClickListener {
 				}
 
 				foto_path = file.getPath();
+				// Mostramos la imagen en la view
 				imagenFoto.setImageBitmap(thumbnail);
 
 				break;
@@ -313,13 +347,14 @@ public class EditarLugarActivity extends Activity implements OnClickListener {
 		}
 	}
 
-	/* (non-Javadoc)
+	/* Listener para realizar las acciones dependiendo del boton apretado en la activity
 	 * @see android.view.View.OnClickListener#onClick(android.view.View)
 	 */
 	@Override
 	public void onClick(View v) {
 		ContentValues values = new ContentValues();
 
+		// Creamos lugar o actualizamos
 		if ((v.getId() == R.id.botonCrear) || ((v.getId() == R.id.btnGuardar))) {
 			// Recogemos los datos del elemento pulsado
 			String nombre = EditText.class.cast(findViewById(R.id.nombre))
@@ -353,9 +388,10 @@ public class EditarLugarActivity extends Activity implements OnClickListener {
 									String.valueOf(id)), values, null, null);
 					if (rowsAffected <= 0)
 						Log.w("Database", "no row affected");
+					finish();
 				}
 			} else {
-				// Nuevo Lugar, por lo que se inserta
+				// Nuevo Lugar, por lo que se inserta valores en BBDD
 				values.put(DatabaseHandler.COLUMNA_NOMBRE, nombre);
 				values.put(DatabaseHandler.COLUMNA_DESCRIPCION, descripcion);
 				values.put(DatabaseHandler.COLUMNA_LATITUD, latitud);
@@ -364,16 +400,41 @@ public class EditarLugarActivity extends Activity implements OnClickListener {
 
 				getContentResolver()
 						.insert(LugaresProvider.CONTENT_URI, values);
+				finish();
 			}
 		}
 
+		// Eliminamos el lugar 
 		if (v.getId() == R.id.btnEliminar) {
-			getContentResolver().delete(
-					Uri.withAppendedPath(LugaresProvider.CONTENT_URI,
-							String.valueOf(id)), null, null);
-			Toast.makeText(this, "Lugar eliminado", Toast.LENGTH_SHORT).show();
-		}
+			
+			// Creamos la ventana de confirmaci—n de borrado del lugar
+			AlertDialog.Builder dialogoEliminar = new AlertDialog.Builder(this);
+			dialogoEliminar.setTitle("Importante");
+			dialogoEliminar.setMessage("ÀEst‡ seguro de querer eliminar este lugar?");
+			dialogoEliminar.setIcon(android.R.drawable.ic_delete);
+			dialogoEliminar.setCancelable(false);
+			
+			// Si aceptamos se borrar‡ el lugar
+			dialogoEliminar.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+				
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					getContentResolver().delete(
+							Uri.withAppendedPath(LugaresProvider.CONTENT_URI,
+									String.valueOf(id)), null, null);
+					finish();
+				}
+			});
+			// Si no, no hacemos nada, volvemos a edicion
+			dialogoEliminar.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+				
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
 
-		finish();
+				}
+			});
+			// Mostramos la ventana de confirmaci—n
+			dialogoEliminar.show();
+		}
 	}
 }

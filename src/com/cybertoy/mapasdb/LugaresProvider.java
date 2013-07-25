@@ -15,28 +15,54 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 
+/**
+ * Clase LugaresProvider.
+ */
 public class LugaresProvider extends ContentProvider {
 
+	
+	// Creamos las URI de mi Content Provider
+	/** Constante AUTHORITY. */
 	public static final String AUTHORITY = "com.cybertoy.mapasdb";
+	
+	/** Constante CONTENT_URI. */
 	public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY
 			+ "/lugares");
+	
+	/** Constante URI_MATCHER. */
 	public static final UriMatcher URI_MATCHER;
+	
+	/** Constante MIME_TYPE_ALL_ITEMS. */
 	public static final String MIME_TYPE_ALL_ITEMS = "vnd.android.cursor.dir/vnd."
 			+ AUTHORITY;
+	
+	/** Constante MIME_TYPE_SINGLE_ITEM. */
 	public static final String MIME_TYPE_SINGLE_ITEM = "vnd.android.cursor.item/vnd."
 			+ AUTHORITY;
+	
+	/** Constante INVALID_URI_MESSAGE. */
 	private static final String INVALID_URI_MESSAGE = "Uri Invalida: ";
+	
+	/** Constante EQUALS. */
 	private static final String EQUALS = "=";
 
+	// Inciamos nuestro URIMatcher y declaramos las URIs que aceptamos
 	static {
 		URI_MATCHER = new UriMatcher(UriMatcher.NO_MATCH);
 		URI_MATCHER.addURI(AUTHORITY, "lugares", 1);
 		URI_MATCHER.addURI(AUTHORITY, "lugares/#", 2);
 	}
 
+
+	/** Mi BBDD */
 	private SQLiteDatabase database;
+	
+	/** Objeto de ayuda con la BBDD */
 	private DatabaseHandler dbHandler;
 
+	/* Obtenemos la instancia de BBDD
+	 * @see android.content.ContentProvider#onCreate()
+	 */
 	@Override
 	public boolean onCreate() {
 		dbHandler = new DatabaseHandler(getContext());
@@ -44,6 +70,9 @@ public class LugaresProvider extends ContentProvider {
 		return database != null && database.isOpen();
 	}
 
+	/* Establecemos los type MIME
+	 * @see android.content.ContentProvider#getType(android.net.Uri)
+	 */
 	@Override
 	public String getType(Uri uri) {
 		switch (URI_MATCHER.match(uri)) {
@@ -56,6 +85,11 @@ public class LugaresProvider extends ContentProvider {
 		}
 	}
 
+	/**
+	 * Abrimos la BBDD
+	 *
+	 * @return the or open database
+	 */
 	private SQLiteDatabase getOrOpenDatabase() {
 		SQLiteDatabase db = null;
 		if (this.database != null && database.isOpen())
@@ -66,6 +100,9 @@ public class LugaresProvider extends ContentProvider {
 		return db;
 	}
 
+	/* Metodo que devuelve la URI del registro que se ha insertado en BBDD
+	 * @see android.content.ContentProvider#insert(android.net.Uri, android.content.ContentValues)
+	 */
 	@Override
 	public Uri insert(Uri uri, ContentValues values) {
 		long rowID = getOrOpenDatabase().insert(DatabaseHandler.TABLA_DB,
@@ -82,6 +119,9 @@ public class LugaresProvider extends ContentProvider {
 		return nuevaUri;
 	}
 
+	/* El metodo lo dejamos abierto para modificar varios, en nuestro caso solo modificamos un registro, en este caos borramos
+	 * @see android.content.ContentProvider#delete(android.net.Uri, java.lang.String, java.lang.String[])
+	 */
 	@Override
 	public int delete(Uri uri, String selection, String[] selectionArgs) {
 		int rowsAffected = 0;
@@ -101,6 +141,9 @@ public class LugaresProvider extends ContentProvider {
 		return rowsAffected;
 	}
 
+	/* Metodo que devuelve un cursor por el cual se facilita el recorrido de registro en BBDD
+	 * @see android.content.ContentProvider#query(android.net.Uri, java.lang.String[], java.lang.String, java.lang.String[], java.lang.String)
+	 */
 	@Override
 	public Cursor query(Uri uri, String[] projection, String selection,
 			String[] selectionArgs, String sortOrder) {
@@ -122,6 +165,9 @@ public class LugaresProvider extends ContentProvider {
 		return cursor;
 	}
 
+	/* El metodo lo dejamos abierto para modificar varios, en nuestro caso solo modificamos un registro, en este caso actualizamos el registro
+	 * @see android.content.ContentProvider#update(android.net.Uri, android.content.ContentValues, java.lang.String, java.lang.String[])
+	 */
 	@Override
 	public int update(Uri uri, ContentValues values, String selection,
 			String[] selectionArgs) {

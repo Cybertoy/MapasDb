@@ -3,14 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#E0E0E0"
     tools:context=".Lugares" >
-
-<!--     <EditText -->
-<!--    		android:id="@+id/busqueda" -->
-<!--     	android:layout_width="fill_parent" -->
-<!--     	android:layout_height="wrap_content" -->
-<!--     	android:hint="Buscar lugar..." -->
-<!--     	android:inputType="text"/> -->
     
     <ListView
         android:id="@+id/android:list"

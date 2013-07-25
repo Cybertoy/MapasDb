@@ -141,10 +141,14 @@ public class MapaLugaresActivity extends FragmentActivity implements
 	public void crearMarcador(int id, LatLng coordenadas) {
 		MarkerOptions marcador = new MarkerOptions();
 
+		// Damos al market la posicion e informamos el snippet para poder pasar el id del lugar.
 		marcador.position(coordenadas);
 		marcador.snippet(String.valueOf(id));
+		
+		// A–adimos el marcador al mapa.
 		mapa.addMarker(marcador);
 
+		// Le declaramos un listener para que al pulsar vayamos al activity Mostrar
 		mapa.setOnMarkerClickListener(this);
 	}
 
@@ -156,6 +160,8 @@ public class MapaLugaresActivity extends FragmentActivity implements
 	@Override
 	public boolean onMarkerClick(Marker marcador) {
 		Intent i = new Intent(this, MostrarLugarActivity.class);
+		
+		// Le pasamos el id del lugar gracias al snippet
 		i.putExtra(DatabaseHandler.COLUMNA_ID,
 				Integer.parseInt(marcador.getSnippet()));
 		this.startActivity(i);
@@ -172,6 +178,7 @@ public class MapaLugaresActivity extends FragmentActivity implements
 	public void onMapClick(LatLng coordenadas) {
 		Bundle bundle = new Bundle();
 		Intent i = new Intent(this, EditarLugarActivity.class);
+		// Le pasamos a la actividad de Editar las coordenadas y la activity desde que llamo
 		bundle.putParcelable("coordenada", coordenadas);
 		i.putExtra("bundle", bundle);
 		i.putExtra("activity-origen", ActivitiesConstantes.ACTIVIDAD_MAPAS);

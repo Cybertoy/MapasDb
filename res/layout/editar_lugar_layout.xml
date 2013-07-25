@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:background="#E0E0E0" >
 
     <RelativeLayout 
     android:layout_width="match_parent"
@@ -11,7 +12,7 @@
         <ImageView 
         android:id="@+id/imagen_foto"
         android:layout_width="fill_parent"
-        android:layout_height="75dp"
+        android:layout_height="150dp"
         android:clickable="true"
         android:contentDescription="@string/imagen_foto" />
     
@@ -84,7 +85,7 @@
            android:layout_alignParentLeft="true"
            android:layout_below="@+id/label_latitud"
            android:ems="10"
-           android:inputType="numberDecimal"/>
+           android:inputType="numberDecimal|numberSigned"/>
 
       <Button 
            android:id="@+id/botonCrear"
